@@ -5,11 +5,28 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <package name="user" namespace="/admin/user" extends="struts-default">
+        <action name="login" class="com.zing.actions.UserAction" method="login">
+            <result name="login">/admin.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+
+
     <package name="helloworld" namespace="/helloworld" extends="struts-default">
         <action name="helloworld" class="com.zing.actions.HelloWorld" method="helloWorld">
             <result name="success">/helloworld.jsp</result>
         </action>
+        <action name="getMethod" class="com.zing.actions.HelloWorld" method="getMethod">
+            <result name="getMethod">/helloworld.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <action name="postMethod" class="com.zing.actions.HelloWorld" method="postMethod">
+            <result >/helloworld.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
     </package>
+
     <package name="first" namespace="/" extends="struts-default">
         <action name="*" class="com.zing.actions.FirstAction" method="{1}">
             <result name="{1}">/success.jsp</result>
