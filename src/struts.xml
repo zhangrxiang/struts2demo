@@ -7,8 +7,12 @@
 <struts>
     <package name="user" namespace="/admin/user" extends="struts-default">
         <action name="login" class="com.zing.actions.UserAction" method="login">
-            <result name="login">/admin.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="login" type="redirect">isLogin.action</result>
+            <result name="error">/admin/index.jsp</result>
+        </action>
+        <action name="isLogin" class="com.zing.actions.UserAction" method="isLogin">
+            <result>/admin.jsp</result>
+            <result name="error">/index.jsp</result>
         </action>
     </package>
 

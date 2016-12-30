@@ -16,6 +16,17 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
     private User user;
     private UserService userService = new UserService();
 
+    public String isLogin(){
+        ActionContext context = ActionContext.getContext();
+        Map<String, Object> session = context.getSession();
+        User user = (User) session.get("user");
+        System.out.println(user);
+        if(user!=null){
+            return SUCCESS;
+        }else {
+            return ERROR;
+        }
+    }
     public String login(){
         ActionContext context = ActionContext.getContext();
         Map<String, Object> session = context.getSession();
@@ -27,6 +38,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         session.put("user", userModel);
         boolean isLogin = userService.login(userModel.getUsername(),userModel.getPassword());
         System.out.println(userModel);
+
+        application.putAll(userService.getAllUser());
+
         if(isLogin)
             return "login";
         else {

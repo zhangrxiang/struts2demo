@@ -10,8 +10,8 @@
 <html>
 <head>
     <title>test</title>
-    <link type="text/css" rel="stylesheet" href="./asserts/bootstrap/css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="./asserts/css/style.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/asserts/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/asserts/css/style.css">
 </head>
 <body>
     <div class="container">

@@ -1,4 +1,12 @@
+<%@ page import="com.zing.domain.User" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+    User user = (User) request.getSession().getAttribute("user");
+    if(user == null){
+        response.setStatus(302);
+        return;
+    }
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -27,5 +35,8 @@
         </tbody>
     </table>
 </div>
+<%
+%>
+<s:debug/>
 </body>
 </html>
